@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">JetpackComposeCourse</string>
+    <string name="hello_world_title">Hello World</string>
+    <string name="whatever_title">Lo que sea</string>
+    <string name="super_list_title">Mi listado de super</string>
+    <string name="next_btn_label">Siguiente</string>
+    <string name="continue_btn_label">Continuar</string>
+    <string name="home_label">Inicio</string>
+    <string name="settings_label">Ajustes</string>
+    <string name="profile_label">Perfil</string>
+    <string name="add_label">Añadir</string>
+</resources>
