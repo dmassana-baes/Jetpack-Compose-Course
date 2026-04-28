@@ -40,6 +40,7 @@ import com.example.jetpackcomposecourse.components.elements.MaterialTopBar
 import com.example.jetpackcomposecourse.components.elements.NavigationOption
 import com.example.jetpackcomposecourse.components.elements.Spacer24
 import com.example.jetpackcomposecourse.components.layouts.MyListColumn
+import com.example.jetpackcomposecourse.navigation.App
 import com.example.jetpackcomposecourse.screens.login.LoginScreen
 import com.example.jetpackcomposecourse.ui.theme.JetpackComposeCourseTheme
 import kotlinx.coroutines.launch
@@ -50,47 +51,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JetpackComposeCourseTheme {
-                val context = LocalContext.current
-                val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
-                val scope = rememberCoroutineScope()
-
-                ModalNavigationDrawer(
-                    drawerState = drawerState,
-                    drawerContent = {
-                        ModalDrawerSheet {
-                            Column(
-                                modifier = Modifier.padding(horizontal = 16.dp)
-                            ) {
-                                Text("Drawer title", modifier = Modifier.padding(16.dp))
-                                HorizontalDivider()
-                                NavigationDrawerItem(
-                                    label = { Text(text = "Drawer Item") },
-                                    selected = false,
-                                    onClick = { /*TODO*/ }
-                                )
-                            }
-                        }
-                    }
-                ) {
-                    Scaffold(
-                        modifier = Modifier.fillMaxSize(),
-                        topBar = {
-                            MaterialTopBar(
-                                title = stringResource(R.string.app_name),
-                                onNavigationClick = {
-                                    // TODO: Implement show drawer logic
-                                    scope.launch {
-                                        drawerState.apply {
-                                            if (isClosed) open() else close()
-                                        }
-                                    }
-                                }
-                            )
-                        }
-                    ) { innerPadding ->
-                        LoginScreen(modifier = Modifier.fillMaxSize().padding(innerPadding))
-                    }
-                }
+                App()
             }
         }
     }

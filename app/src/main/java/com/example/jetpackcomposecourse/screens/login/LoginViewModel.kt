@@ -38,10 +38,21 @@ class LoginViewModel: ViewModel() {
         }
     }
 
+    fun onLoginSuccess() {
+        _uiState.update { previousState ->
+            previousState.copy(isLoginSuccessful = true)
+        }
+    }
+
+    fun onResetState() {
+        _uiState.value = LoginUiState()
+    }
+
     fun onLoginClick() {
         viewModelScope.launch {
             onLoadingChange(isLoading = true)
             delay(3000) // simula llamada a red
+            onLoginSuccess()
             onLoadingChange(isLoading = false)
         }
     }

@@ -108,7 +108,7 @@ fun MaterialTopBar(
         navigationIcon = {
             IconButton(onClick = onNavigationClick) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_hamburguer_menu),
+                    painter = painterResource(R.drawable.ic_arrow_back),
                     contentDescription = null
                 )
             }
